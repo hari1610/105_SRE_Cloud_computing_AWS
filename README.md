@@ -5,6 +5,13 @@
 ##### AWS Services
 - AWS has a govcloud just for the governments, no one else can use it
 
+#### AWS ( Amazon web serives
+- Cloud computing platform by Amazon
+- offers content delivery services, data storage.
+
+#### AWS global infrastructure?
+- available in 26 regions
+- 84 zones
 #### SRE?
 - An SRE is responsible for how the code is deployed
 - reposible for testing the reliability of new features
