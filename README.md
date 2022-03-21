@@ -4,7 +4,12 @@
 #### Cloud computing with AWS
 ##### AWS Services
 - AWS has a govcloud just for the governments, no one else can use it
-### benefits of cloud computing
+
+#### SRE?
+- An SRE is responsible for how the code is deployed
+- reposible for testing the reliability of new features
+- figure out how to automate features.
+#### benefits of cloud computing
 - on the cloud we only pay for what we use ( cost benefit).
 - You can go global in minutes.
 -  A lot of management cost if you set up the server yourself
