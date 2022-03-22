@@ -57,6 +57,7 @@
 - all your data is public
 
 
-##Process of making an AWS
+## Process of making an AWS
+
 ![cloud computing](https://user-images.githubusercontent.com/26463206/159463185-e7780cbc-b452-48bb-9572-16804a571bad.PNG)
 
