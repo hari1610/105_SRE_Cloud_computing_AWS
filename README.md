@@ -60,16 +60,24 @@
 ## Process of making an AWS
 
 - pem file contains the security key. When a request is sent from local host, this key is used to see if you are authorised.
+- ec2 instance is a virtual machine, you can set security groups to make it secure.
 
 ### how to launch an instance
 - log into the aws website
 - create new e2 instance
 - select ubuntu 18
+- choose an instance type
+- set the network and subnet, enable public IP
+- select storage size
+- create a tag for key and value. E.g Name 105_devops_hari_nginx
 - create your security group
-- create one for ssh which will be for you or devs and create one for everyone.
+- - create a SSH one for admin access only, source should be my IP
+  - create a new Http for public access,source should be anywhere
+- review and launch
+- select the key pair and launch
 - connect to instance through ssh client
-- make sure you are on the same working directory as 105.perm
-- copy the ssh key
+- then update and upgrade the ubuntu vm
+- and then add install nginx
 
 ![cloud computing](https://user-images.githubusercontent.com/26463206/159463185-e7780cbc-b452-48bb-9572-16804a571bad.PNG)
 
