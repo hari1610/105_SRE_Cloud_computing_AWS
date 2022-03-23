@@ -217,3 +217,59 @@ sudo systemctl enable tomcat9
 #use port 8080
 sudo ufw allow 8080/tcp
 ```
+### Cloud computing
+##### What is a VPC?
+
+![a vpc](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Virtual_Private_Cloud_%28VPC%29.svg/1280px-Virtual_Private_Cloud_%28VPC%29.svg.png)
+- VPC stands for virtual private cloud
+- A private section of the AWS you control
+- you can place AWS resources like databases and EC2 instances
+- you also have control over who has access
+##### What is internet gateway?
+- it provides your vpc a route to the internet.
+- it is horizontally scaled, redundant and highly available.
+- allows communication between instances and the internet.
+- only one IGW can be attached to a VPC at a time
+- IGW cannot be detached if instances are running
+##### what is route tables?
+- contains a set of rules(routes) that determines where network traffic is directed.
+- route table provides the connection between all your AWS resources
+- decides which subnet the traffic has to go.
+##### what is Nacls?
+- stands for network access control list
+- optional layer of security for your VPC
+- firewall for controlling traffic to subnets
+- lies between the route table and subnets
+- by default all traffics are allowed in and out.
+- rules are evaluated from lowest to highest
+##### what is a subnet?
+- its a sub-section of a network
+- two types of subnet private and public
+- a public subnet has a route to the internet but private doesn't
+- a subnet has to be only in one availablilty zone
+- EC2 instances reside inside a subnet
+##### what is security group?
+- are found on the instance level
+- virtual firewall that controls the traffic for instances
+- will evaluate all of the rules
+##### How did you secure your app on the cloud?
+- by setting a security group
+- set which port is for private and which is for everyone.
+- only allowing port 20 and 80
+##### What are the outbound rules for security group by default? and why?
+- sets all outbound traffic as allowed(any ports)
+- the security group doesnt know what type of traffic our instances are going to send out
+##### what is the command to kill a process in linux?
+There are two ways to kill a process:
+1. you can kill a process by ID:
+```bash
+kill SIGNAL PID
+#example
+kill 9 5462
+```
+2. you can also kill a process by name:
+```bash
+killall SIGNAL Name
+#example
+killall 9 chrome
+```
