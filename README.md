@@ -58,6 +58,7 @@
 
 
 ## Process of making an AWS
+![cloud computing](https://user-images.githubusercontent.com/26463206/159463185-e7780cbc-b452-48bb-9572-16804a571bad.PNG)
 
 - pem file contains the security key. When a request is sent from local host, this key is used to see if you are authorised.
 - ec2 instance is a virtual machine, you can set security groups to make it secure.
@@ -79,5 +80,79 @@
 - then update and upgrade the ubuntu vm
 - and then add install nginx
 
-![cloud computing](https://user-images.githubusercontent.com/26463206/159463185-e7780cbc-b452-48bb-9572-16804a571bad.PNG)
+### linux commands
+```shell 
+systemctl status nginx 
+ ```
+- to restart the service you use: 
+```bash 
+sudo systemctl start nginx 
+```
+- to stop its:
+```bash 
+sudo systemctl stop service_name_
+```
+
+- How to enable service(This will start the service to start at startup:):
+```bash
+sudo systemctl enable service_name
+```
+- how to install a package:
+```bash
+sudo apt-get install package_name -y
+```
+- how to remove a package:
+```bash
+sudo apt-get remove package_name -y
+```
+- how to install a package:
+```bash
+sudo apt-get remove package_name -y
+```
+- how to check all process:
+```bash
+top
+```
+- who am I?
+```bash
+uname
+```
+```bash
+uname -a
+```
+-where am I?
+```bash
+pwd
+```
+-create a dir?
+```bash
+mkdir dir_name_
+```
+-how to check?
+```bash
+ls
+```
+```bash
+ls -a
+```
+- how to create a file?
+```bash
+touch name_file
+```
+```bash
+nano file_name
+```
+- how to check content of the file without going inside the file?
+```bash
+cat file_name
+```
+- how to copy a file and move to a different location?
+```bash
+cat file_name
+```
+
+- how to move a file and move to a different location?
+```bash
+mv file_name destination
+```
 
