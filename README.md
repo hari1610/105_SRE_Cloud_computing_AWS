@@ -175,3 +175,25 @@ chmod +x filename.sh
 ```
 - write `w` read `r`.
 - where to find the permision codes:  https://chmod-calculator.com/
+- code block
+```bash
+#!/bin/bash
+# run update
+sudo apt-get update -y
+
+# run upgrades
+
+sudo apt-get upgrade -y
+
+# install nginx
+
+sudo apt-get install nginx -y
+# ensure its running
+
+sudo systemctl start nginx
+
+# enable nginx
+sudo systemctl enable nginx
+
+```
+- change the file to exe `chmod +x provision.sh
