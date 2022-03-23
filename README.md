@@ -197,3 +197,23 @@ sudo systemctl enable nginx
 
 ```
 - change the file to exe `chmod +x provision.sh
+
+### creating a script to automate topcat server
+- allow port number 8080 on you ec2 instance
+- then create a script:
+
+```bash
+#!/bin/bash
+
+#install tomcat
+sudo apt-get install tomcat9 -y
+
+#start the tomcat
+sudo systemctl start tomcat9
+
+#enable tomcat
+sudo systemctl enable tomcat9
+
+#use port 8080
+sudo ufw allow 8080/tcp
+```
