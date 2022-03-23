@@ -148,11 +148,30 @@ cat file_name
 ```
 - how to copy a file and move to a different location?
 ```bash
-cat file_name
+cp file_name destination
 ```
 
 - how to move a file and move to a different location?
 ```bash
 mv file_name destination
 ```
+- how to delete a folder?
+```bash
+rm -rf folder_name
+```
 
+### File permission
+- how to check a file permission: 
+```bash
+ll
+```
+- change file permission 
+```bash 
+chmod required_permision file_name
+```
+- to make a file executable 
+```bash
+chmod +x filename.sh
+```
+- write `w` read `r`.
+- where to find the permision codes:  https://chmod-calculator.com/
