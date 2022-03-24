@@ -275,7 +275,12 @@ killall SIGNAL Name
 killall 9 chrome
 ```
 
+[kill process](kill process.PNG)
+
 ### Monolith - n-tire - 2-tier & Microservices Architecture
+
+[architexture](monolith and microservice.png)
+
 ##### Monolith - N-tier - 2-tier architecture
  - a monolithic is built on a single unit.
  - there are three major parts
@@ -314,11 +319,11 @@ killall 9 chrome
 - the process of end to end product development
 
 ###### The stages are:
-- Planning: Just an idea, only in someone’s head
+- Planning: Just an idea, only in someoneÂ’s head
 - Designing: Writing out how the product will look and what it needs.
 - Development: Develop an environment that works for all of us. i.e the linux instance we created implementing the design.
 - Testing: Nothing goes to production without testing, The test must pass in order to go to the next stage, Beta versions can happen after testing to get feedback from the user.
-- Staging: It’s the holding area before the code gets deployed. The program is packaged and ready, just on hold till the release date. After staging the code is deployed.
+- Staging: ItÂ’s the holding area before the code gets deployed. The program is packaged and ready, just on hold till the release date. After staging the code is deployed.
 
 ### Github
 -	One person reviewing is always the best.
