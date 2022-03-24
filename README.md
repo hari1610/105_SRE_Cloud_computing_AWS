@@ -275,11 +275,11 @@ killall SIGNAL Name
 killall 9 chrome
 ```
 
-[kill process](kill process.PNG)
+![kill process](kill process.PNG)
 
 ### Monolith - n-tire - 2-tier & Microservices Architecture
 
-[architexture](monolith and microservice.png)
+![architexture](monolith and microservice.png)
 
 ##### Monolith - N-tier - 2-tier architecture
  - a monolithic is built on a single unit.
