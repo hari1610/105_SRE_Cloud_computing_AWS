@@ -258,6 +258,7 @@ sudo ufw allow 8080/tcp
 - only allowing port 20 and 80
 ##### What are the outbound rules for security group by default? and why?
 - sets all outbound traffic as allowed(any ports)
+- only authorised ports can come in so you dont need to check on the way out
 - the security group doesnt know what type of traffic our instances are going to send out
 ##### what is the command to kill a process in linux?
 There are two ways to kill a process:
@@ -273,3 +274,54 @@ killall SIGNAL Name
 #example
 killall 9 chrome
 ```
+
+### Monolith - n-tire - 2-tier & Microservices Architecture
+##### Monolith - N-tier - 2-tier architecture
+ - a monolithic is built on a single unit.
+ - there are three major parts
+ - a client UI
+ - a server-side application
+ - a database
+ - simple but has limitations
+ - heavy apps can slow down the start up time
+ - need to redeploy everytime there is a update
+ - challenging to upscale
+ - useful for simple and lightweight apps
+
+###### two-tier
+- there is no business logic layer between the client and the server
+- the UI layer runs on the client side while dataset layer gets executed and stored on server side.
+###### N-tier
+- The program is distributed amongst 3 or more computers in a distributed network.
+- UI, business logic and databases are seperate
+##### Microservices architecture
+- everything is a service on a micro level
+- allows business to scale up and add new features
+- new services does not effect the old services
+- each service/feature can be test independently
+- the database is not on the front end
+- expensive
+
+#### what is scale out?
+- moving sideways
+- scaling sideways when the number of users increases
+#### what is scale up?
+- moving upwards
+- increase the volume in the specs when the size of the instance is too big for the current one.
+
+### SDLC
+- stands for software development lifecycle
+- the process of end to end product development
+
+###### The stages are:
+- Planning: Just an idea, only in someone’s head
+- Designing: Writing out how the product will look and what it needs.
+- Development: Develop an environment that works for all of us. i.e the linux instance we created implementing the design.
+- Testing: Nothing goes to production without testing, The test must pass in order to go to the next stage, Beta versions can happen after testing to get feedback from the user.
+- Staging: It’s the holding area before the code gets deployed. The program is packaged and ready, just on hold till the release date. After staging the code is deployed.
+
+### Github
+-	One person reviewing is always the best.
+-	Someone who is more knowledgeable should merge.
+-	Git enter will tell you all the commands that can be performed on git
+-	If you delete the .git file you need to reconnect to the github remote before pushing the code back to github.
