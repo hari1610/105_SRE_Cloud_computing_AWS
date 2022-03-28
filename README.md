@@ -330,3 +330,103 @@ killall 9 chrome
 -	Someone who is more knowledgeable should merge.
 -	Git enter will tell you all the commands that can be performed on git
 -	If you delete the .git file you need to reconnect to the github remote before pushing the code back to github.
+
+### S3
+- stands for simple storage system
+- used in data back up - disaster recovery plan (DR)
+- S3 is globally available 
+- Highly Available, can be accessed from any region
+- s3 glacier class is for infrequent data access. Dont need to access the data frequently.
+
+steps for S3:
+- install ec2 instance
+- install required dependencies 
+- AWSCLI - Python 3 & above - running ec2
+- AWS access & secret keys
+- To access them from local host you need ssh port 22.
+
+
+### AWS CLI & S3
+- update & upgrade
+
+```bash
+sudo apt update -y
+sudo apt upgrade -y
+```
+- install python 3.7
+```bash
+sudo apt install python
+```
+- check python version
+```bash
+python --version
+```
+- set python as alias for python3
+```bash
+alias python=python3
+```
+- install pip3
+```bash
+sudo apt install python3-pip
+```
+- install awscli
+```bash
+sudo apt install awscli
+python3 -m pip install awscli
+```
+#### accessing S3 from ec2
+```bash
+aws configure
+```
+- enter the creditional details
+- creating a bucket
+```bash
+aws s3 mb s3://105-sre-hari
+```
+- move data from e2 to s3
+```bash
+aws s3 cp sre.txt s3://105-sre-hari
+```
+- download data from s3 to e2
+```bash
+aws s3 cp s3://105-sre-hari /home/ubuntu
+```
+- remove files from inside the bucket
+```bash
+aws s3 rm s3://105-sre-hari/sre.txt
+```
+- remove bucket
+```bash
+aws s3 rb s3://105-sre-hari
+```
+### Docker
+
+##### Installing docker on windows
+- Download the docker desktop from their website
+
+
+### Docker commands
+- download an image
+```bash
+ docker run -d -p 80:80 hjalendran/sre_105_index_hari:latest
+```
+- list all the images
+```bash
+ docker images
+```
+- list all the running containers
+```bash
+ docker ps
+```
+- move files into a docker container using container id
+```bash
+ docker cp index.html b1c78ac9657f:/usr/share/nginx/html/index.html
+```
+- create a docker image from container
+```bash
+ docker commit b1c78ac9657f hjalendran/sre_105_index_hari
+```
+- push the image to the docker hub
+```bash
+ docker push hjalendran/sre_105_index_hari:latest
+```
