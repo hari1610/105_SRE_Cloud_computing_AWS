@@ -443,3 +443,12 @@ aws s3 rb s3://105-sre-hari
 ```bash
  docker push hjalendran/sre_105_index_hari:latest
 ```
+### Docker file to automate the process of building customised image - building a microservice with docker
+
+- Crio - Rocket - Docker
+- automate image building of our customised nginx image
+- create a `Dockerdfile` in the same location where our index.html is.
+- decide which base image to use for your image
+
+### Test the image locally to ensure it works
+- if all good push it onto docker hub.
