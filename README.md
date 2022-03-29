@@ -403,7 +403,7 @@ aws s3 rb s3://105-sre-hari
 ![docker](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/docker.PNG)
 - its a containerisation platform
 - makes project immuteable and globally available
-![doverVSVm](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.aquasec.com%2Fcloud-native-academy%2Fdocker-container%2Fdocker-containers-vs-virtual-machines%2F&psig=AOvVaw2CLANpL4UWyOLmNZ9-uTYE&ust=1648631420972000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMCB6uf86vYCFQAAAAAdAAAAABAD)
+![doverVSVm](https://wiki.aquasec.com/download/attachments/2854029/docker-birthday-3-intro-to-docker-slides-18-638.jpg?version=1&modificationDate=1515522843003&api=v2)
 ##### virtualisation vs Docker
 - Virtual mahcines take up 50% of your hardware
 - Docker shares the resources
