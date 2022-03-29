@@ -403,7 +403,7 @@ aws s3 rb s3://105-sre-hari
 ![docker](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/docker.PNG)
 - its a containerisation platform
 - makes project immuteable and globally available
-
+- there are other types such as  Crio, Rocket
 ##### virtualisation vs Docker
 
 ![doverVSVm](https://wiki.aquasec.com/download/attachments/2854029/docker-birthday-3-intro-to-docker-slides-18-638.jpg?version=1&modificationDate=1515522843003&api=v2)
@@ -445,10 +445,70 @@ aws s3 rb s3://105-sre-hari
 ```
 ### Docker file to automate the process of building customised image - building a microservice with docker
 
-- Crio - Rocket - Docker
-- automate image building of our customised nginx image
-- create a `Dockerdfile` in the same location where our index.html is.
-- decide which base image to use for your image
+- Create a Dockerfile in the same location as your project(Dockerfile has no extension)
+![dockerfile](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/dockerfile.PNG)
+- inside it decide which base image you are going to use. for example:
+```bash
+FROM nginx
+```
+- As an optional step you can set the author of the image. For example:
+```bash
+LABEL MAINTAINER=HARI
+```
+- copy the data from localhost to your container. For example:
+```bash
+COPY index.html /usr/share/nginx/html
+```
+- Set what is the required port for your project
+```bash
+EXPOSE 80
 
-### Test the image locally to ensure it works
-- if all good push it onto docker hub.
+``` 
+- launch the app using CMD. For ecample:
+```bash
+CMD ["nginx", "-g", "daemon off;"]
+# -g allows the image to be accessed globally
+``` 
+- Finally build the image from the dockerfile. For example:
+```bash
+docker build -t hjalendran/105_sre_nginx_test .
+#the . tells you the location you want the test to run from
+```
+- once it runs fine you can push it to docker hub. Example:
+```bash
+docker push hjalendran/105_sre_nginx_test:latest
+```
+
+### Making the Products Api on docker
+- create a dockerfile in the same location as the api project
+- Make swagger run outside development mode, by commenting out the if statement
+
+![swagger](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/swagger.PNG)
+
+- get the dotnet base image and creating a working directory.
+```bash
+COPY *.csproj ./
+RUN dotnet restore
+```
+- The overall dockerFile:
+```bash
+# Get the base image for api
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+WORKDIR /ProductsApiApp
+
+#copy the cs project
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /ProductsApiApp
+EXPOSE 80
+COPY --from=build-env /ProductsApiApp/out .
+ENTRYPOINT ["dotnet", "ProductsApiApp.dll"]
+```
+
