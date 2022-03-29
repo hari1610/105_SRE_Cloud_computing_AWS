@@ -400,7 +400,16 @@ aws s3 rm s3://105-sre-hari/sre.txt
 aws s3 rb s3://105-sre-hari
 ```
 ### Docker
+![docker](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/docker.png)
+- its a containerisation platform
+- makes project immuteable and globally available
 
+##### virtualisation vs Docker
+- Virtual mahcines take up 50% of your hardware
+- Docker shares the resources
+- Docker only uses the resource it needs
+- Docker can create its own volumes
+- containers in Docker has its own volume
 ##### Installing docker on windows
 - Download the docker desktop from their website
 
