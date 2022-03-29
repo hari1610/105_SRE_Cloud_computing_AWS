@@ -412,7 +412,9 @@ aws s3 rb s3://105-sre-hari
 - containers in Docker has its own volume
 ##### Installing docker on windows
 - Download the docker desktop from their website
-
+- follower the installer instructions to complete docker
+- you might have to restart your pc couple of times
+- run ```docker run hello-world``` on CLI to see if docker works
 
 ### Docker commands
 - download an image
