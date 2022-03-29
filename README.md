@@ -400,7 +400,7 @@ aws s3 rm s3://105-sre-hari/sre.txt
 aws s3 rb s3://105-sre-hari
 ```
 ### Docker
-![docker](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/docker.png)
+![docker](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/docker.PNG)
 - its a containerisation platform
 - makes project immuteable and globally available
 
