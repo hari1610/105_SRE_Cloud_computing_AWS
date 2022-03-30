@@ -534,7 +534,6 @@ ENTRYPOINT ["dotnet", "ProductsApiApp.dll"]
 #### Kubernetes architecture
 ![kubernetes_Architecture_](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kubernete_architecture.PNG)
 
-- 
 #### how to install kubernetes
 - open docker desktop
 - go to settings
@@ -568,9 +567,153 @@ kubectl get pod
 ```bash
 kubectl describe pod pod_name_
 ```
+### YAML
+- yaml is a scripting language
+- they have a extension of .yml or .yaml
+- To start a yml file you use three `---`
+- yml is case sensitive
+- intendation of yml is important
+##### Use cases of Yaml
+- Can be utilised with:
+- - k8
+- - docker-compose
+- - ansible
+- - cloud-formation
+- To codify anything and everything in order to automate processess
+#### To write a script
+![kubernete-nginx](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kubernete-nginx.PNG)
 
+
+- create a folder called nginx-deploy
+
+- create a file for nginx_deployment.yml
+```yml
+apiVersion: apps/v1 # which api to use for deployment
+kind: Deployment # what kind of service/object you want to create
+
+#what would you like to it - name the service/object
+metadata:
+  name: nginx-deployment # naming the deployment
+
+
+
+spec:
+  selector:
+    matchLabels:
+      app: nginx # look for this label to match with k8 service
+  # Let's create a replica set of this with 2 instances/pods
+  replicas: 3
+
+  # template to use its label for k8 service to launch in the browser
+  template:
+    metadata:
+      labels:
+        app: nginx # This label connects to the service or any other k8 components
+
+  # Let's define the container spec
+    spec:
+      containers:
+      - name: nginx
+        image: hjalendran/105_sre_nginx_test:latest
+        ports:
+        - containerPort: 80
+```
+- create a file for nginx_svc.yml
+```yml
+---
+
+apiVersion: v1
+kind: Service
+
+# Metadata for name
+metadata:
+  name: nginx-svc
+  namespace: default 
+
+# Specification to include ports Selector to connect to the deployment
+spec:
+  ports:
+  - nodePort: 30442 # range is 30000-32768
+    port: 80
+    protocol: TCP
+    targetPort: 80
+
+# Let's define the selector and label to connect to nginx deployment
+  selector:
+    app: nginx # this label connects this service to deployment
+ # creating LoadBalncer type of deployment
+  type: LoadBalancer
+```
+- now deploy your deployment file with:
+```bash
+kubectl create -f nginx-deploy.yml
+```
+- now deploy your service file with:
+```bash
+kubectl create -f nginx-service.yml
+```
+- now you should find nginx running on local host.
+- To edit a service `kubectl edit`
 ### Best practice to scale out and adapt micro-services
 - plan the architecture with a small team, test, learn and move on
 - use Docker to containerise your apps for fast and consistent delivery
 - orchestration with k8 to make your life easy
 
+#### deploying my api on kubernetes
+![test_api](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/test_api_.PNG)
+- Create a file to deploy the api image
+```yml
+apiVersion: apps/v1
+kind: Deployment
+
+
+metadata:
+  name: api-test-deployment # naming the deployment
+
+
+
+spec:
+  selector:
+    matchLabels:
+      app: api-test
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: api-test # This label connects to the service or any other k8 components
+
+  # Let's define the container spec
+    spec:
+      containers:
+      - name: api-test
+        image: hjalendran/apitest:latest
+        ports:
+        - containerPort: 80
+```
+- Create a file a service file to connect
+```yml
+---
+
+apiVersion: v1
+kind: Service
+
+#Metadaa for name
+metadata:
+  name: api-test-svc
+  namespace: default 
+
+# Specification to include ports
+spec:
+  ports:
+  - nodePort: 30442 # range is 30000-32768
+    port: 90
+    protocol: TCP
+    targetPort: 80
+
+#Let's define the selector and
+  selector:
+    app: api-test
+ # creating LoadBalncer type of deployment
+  type: LoadBalancer
+```
+- run both the deployment and service yml
