@@ -660,7 +660,7 @@ kubectl create -f nginx-service.yml
 - orchestration with k8 to make your life easy
 
 #### deploying my api on kubernetes
-![test_api](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/test_api_.PNG)
+![test_api](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/test_api.PNG)
 - Create a file to deploy the api image
 ```yml
 apiVersion: apps/v1
