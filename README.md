@@ -512,3 +512,65 @@ COPY --from=build-env /ProductsApiApp/out .
 ENTRYPOINT ["dotnet", "ProductsApiApp.dll"]
 ```
 
+### Kubernetes
+- also known as k8
+- its a container orchestration system
+- made by google
+- allows you to scale your containers
+- kubernetes is managed automatically once set by you
+
+#### advantages of Kubernetes
+- self healing
+- load balancing and service Discovery
+- aumated rollouts and rollback
+- auto scaling
+- automatic bin packing
+- storage orchestration
+
+#### kubernetes services
+- deployments
+- pods ( each pod has its own IP)
+
+#### Kubernetes architecture
+![kubernetes_Architecture_](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kubernete_architecture.PNG)
+
+- 
+#### how to install kubernetes
+- open docker desktop
+- go to settings
+- click on kubernetes
+- select enable kubernetes and show system containers.
+- click apply and restart
+- run `kubectl get service` to check everything is working properly
+
+#### k8 commands
+- To get a list of services
+```bash
+kubectl get service 
+```
+- To get a specific service
+```bash
+kubectl get service service_name_
+```
+- To see all deployment
+```bash
+kubectl get deploy 
+```
+- To see a specific deploy
+```bash
+kubectl get deploy deploy_name_ 
+```
+- To get a list of pods
+```bash
+kubectl get pod 
+```
+- to see details about a pod:
+```bash
+kubectl describe pod pod_name_
+```
+
+### Best practice to scale out and adapt micro-services
+- plan the architecture with a small team, test, learn and move on
+- use Docker to containerise your apps for fast and consistent delivery
+- orchestration with k8 to make your life easy
+
