@@ -771,7 +771,7 @@ minikube version
 ```
 - your output should be something similar to this:
 
-![minikube-version](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minikube-version.PNG)
+![minikube-version](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minicube-version.PNG)
 - now become a root user:
 ```bash
 sudo -i
