@@ -717,3 +717,102 @@ spec:
   type: LoadBalancer
 ```
 - run both the deployment and service yml
+
+
+### To make your API globally available
+- test it on your localhost first
+- find out the requuirements you need for the API:
+- - Minimum requirement for hard and memory/EBS
+  - linux ubuntu 18.04
+  - docker installed
+  - minimum single node k8 cluster running on ec2 (minikube)
+  - T2medum
+  - .net installed
+  - storage to backup the data
+  - how many containers?
+- For Amazon EC2
+  - T2 medium
+  - required dependicies - Docker - k8 Minikube
+  - Migrate the data - SCP/Rsycn
+  - ubuntu 18.04
+  - Ec2 - SG - to allow required traffic/ports
+  - file.pem
+  - minikube takes at least one cpu
+
+### Installing minikube & running your Api
+- log into the ubuntu virtual machine
+- install kubectl first using the following command:
+
+```bash
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
+```
+- now make kubectl executeble:
+```bash
+chmod +x ./kubectl
+
+```
+- now move kubectl:
+```bash
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
+- now install Docker:
+```bash
+sudo apt-get install docker.io -y
+```
+- now install minikube and make the file executable and move it to the same location as kubectl
+```bash
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+```
+- you can check if its installed properly by running:
+```bash
+minikube version
+```
+- your output should be something similar to this:
+![minikube-version](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minikube-version.png)
+- now become a root user:
+```bash
+sudo -i
+```
+- kubernetes requires conntrack to be installed in the root path:
+```bash
+sudo apt install conntrack
+```
+- now start minikube with no driver:
+```bash
+minikube start --vm-driver=none
+```
+- now check the status to see everything is working
+```
+minikube status
+
+```
+![minikube-status](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minikube_status.png)
+
+- now copy in your yaml file for deployment and serive into the virtual machine
+```bash
+# option i makes sure you are not overwriting any existing files
+scp -i [auth file] [source] [desitination]
+# example:
+$ scp -i ~/.ssh/105.pem api_test-service.yml ubuntu@ec2-52-19-104-232.eu-west-1.compute.amazonaws.com:
+```
+- now deploy both files using kubernetes, always run deploy first!:
+```bash
+kubectl create -f [filename]
+# example:
+kubectl create -f api_test-deploy.yml
+kubectl create -f api_test-service.yml
+```
+- Run `kubectl get deploy` to get the access port for your api
+
+![kube_service](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kube_service.png)
+
+- Now allow that port in your security group.
+
+### stateless and stateful (Nacl and security group)
+- Nacl is stateless and Security Group is stateful.
+- stateless means that any changes applied to an incoming rule isn't automatically applied to an outgoing rule.
+- Example: If a request comes through port 80, it should be explicitly indicated that its outgoing response would be the same port 80.
+- stateful means that any changes which are applied to an incoming rule is automatically applied to a rule which is outgoing.
+- Example: If the incoming port of a request is 80, the outgoing response of that request is also 80 (it is opened automatically) by default.
