@@ -770,7 +770,8 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 minikube version
 ```
 - your output should be something similar to this:
-![minikube-version](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minikube-version.png)
+
+![minikube-version](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minikube-version.PNG)
 - now become a root user:
 ```bash
 sudo -i
@@ -788,7 +789,7 @@ minikube start --vm-driver=none
 minikube status
 
 ```
-![minikube-status](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minikube_status.png)
+![minikube-status](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/minikube_status.PNG)
 
 - now copy in your yaml file for deployment and serive into the virtual machine
 ```bash
@@ -806,7 +807,7 @@ kubectl create -f api_test-service.yml
 ```
 - Run `kubectl get deploy` to get the access port for your api
 
-![kube_service](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kube_service.png)
+![kube_service](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kube_service.PNG)
 
 - Now allow that port in your security group.
 
