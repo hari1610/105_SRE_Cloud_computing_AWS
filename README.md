@@ -581,7 +581,7 @@ kubectl describe pod pod_name_
 - - cloud-formation
 - To codify anything and everything in order to automate processess
 #### To write a script
-![kubernete-nginx](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kubernete-nginx.PNG)
+![kubernete-nginx](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/kubernete-nginx.png)
 
 
 - create a folder called nginx-deploy
@@ -660,7 +660,7 @@ kubectl create -f nginx-service.yml
 - orchestration with k8 to make your life easy
 
 #### deploying my api on kubernetes
-![test_api](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/test_api.PNG)
+![test_api](https://github.com/hari1610/105_SRE_Cloud_computing_AWS/blob/main/images/test_api.png)
 - Create a file to deploy the api image
 ```yml
 apiVersion: apps/v1
